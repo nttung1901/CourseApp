@@ -4,7 +4,8 @@ from courses import views
 
 r = DefaultRouter()
 r.register('categories', views.CategoryViewSet, basename = 'category')
-
+r.register('course', views.CourseViewSet, basename= 'course')
+r.register('lesson', views.LessonViewSet, basename= 'lesson')
 
 urlpatterns = [
     path('', include(r.urls))

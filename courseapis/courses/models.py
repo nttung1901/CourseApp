@@ -38,6 +38,14 @@ class Lesson(BaseModel):
     content = RichTextField(null= False)
     image = models.ImageField(upload_to= 'lessons/%Y/%m/')
     course = models.ForeignKey(Course, on_delete=models.RESTRICT)
+    tags = models.ManyToManyField('Tag')
 
     def __str__(self):
         return self.subject
+
+
+class Tag(BaseModel):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
